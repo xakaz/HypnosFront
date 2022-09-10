@@ -18,47 +18,36 @@ export default function MonCompte() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      await axios.get(process.env.REACT_APP_AXIOS_URL + "/front/user")
-        .then(response => { setUsers(response.data) })
-        .catch(err => { console.error(err) })
-    }
-    fetchUsers();
 
-    const fetchBooking = async () => {
-      await axios.get(process.env.REACT_APP_AXIOS_URL + "/back/getBooking")
-        .then(response => { setBooking(response.data) })
-        .catch(err => { console.error(err) })
-    }
-    fetchBooking();
-
-    const fetchSuites = async () => {
-      await axios.get(process.env.REACT_APP_AXIOS_URL + "/front/suites")
-        .then(response => { setSuites(response.data); })
-        .catch(err => { console.error(err) })
-    }
-    fetchSuites();
-
-    const fetchHotels = async () => {
-      await axios.get(process.env.REACT_APP_AXIOS_URL + "/front/hotels")
-        .then(response => { setHotels(response.data); })
-        .catch(err => { console.error(err) })
-    }
-    fetchHotels();
-
-    const fetchMailUser = async () => {
-      await axios.get(process.env.REACT_APP_AXIOS_URL + "/back/email")
-        .then(response => {
-          response.data.map(mailUser => {
-            return (
-              mailUser.user_mail === currentUser.email &&
-              setEmail(mailUser.user_mail)
-            )
-          })
+    axios.get(process.env.REACT_APP_AXIOS_URL + "/back/email")
+      .then(response => {
+        response.data.map(mailUser => {
+          return (
+            mailUser.user_mail === currentUser.email &&
+            setEmail(mailUser.user_mail)
+          )
         })
-        .catch(err => { console.error(err) })
-    }
-    fetchMailUser();
+      })
+      .catch(err => { console.error(err) })
+
+    axios.get(process.env.REACT_APP_AXIOS_URL + "/front/suites")
+      .then(response => { setSuites(response.data); })
+      .catch(err => { console.error(err) })
+
+    axios.get(process.env.REACT_APP_AXIOS_URL + "/front/user")
+      .then(response => {
+        setUsers(response.data)
+      })
+      .catch(err => { console.error(err) })
+
+    axios.get(process.env.REACT_APP_AXIOS_URL + "/back/getBooking")
+      .then(response => { setBooking(response.data) })
+      .catch(err => { console.error(err) })
+
+    axios.get(process.env.REACT_APP_AXIOS_URL + "/front/hotels")
+      .then(response => { setHotels(response.data); })
+      .catch(err => { console.error(err) })
+
   }, [])
 
   const handleImage = (suite_id, hotel_id) => {
@@ -67,8 +56,8 @@ export default function MonCompte() {
     navigate("/reservation")
   }
 
-  const handleCancel = async (id) => {
-    await axios.post(process.env.REACT_APP_AXIOS_URL + "/back/deleteBooking", id)
+  const handleCancel = (id) => {
+    axios.post(process.env.REACT_APP_AXIOS_URL + "/back/deleteBooking", id)
       .then(response => { console.log(response) })
       .catch(err => { console.error(err) })
     window.location.reload();
@@ -86,7 +75,9 @@ export default function MonCompte() {
         currentUser ?
           <div className="container text-white">
             {
+              users &&
               email === currentUser.email &&
+              // currentUser.email &&
               users.map(user => {
                 return (
                   user.user_mail === currentUser.email &&

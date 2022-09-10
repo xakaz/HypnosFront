@@ -19,7 +19,7 @@ class BienEtre extends Component {
           for (let i = 0; i < response.data.length; i++) {
             if (response.data[i].service_role === "3") {
               wellnessArr.push(response.data[i])
-              this.setState({ bienEtre: wellnessArr });
+              this.setState({ bienEtre: wellnessArr })
             }
           }
         })

@@ -70,7 +70,9 @@ export default function Reservation() {
 
     const fetchHotels = async () => {
       await axios.get(process.env.REACT_APP_AXIOS_URL + "/front/hotels")
-        .then(response => { setHotels(response.data); })
+        .then(response => {
+          setHotels(response.data)
+        })
         .catch(err => { console.error(err) })
     }
     fetchHotels();
@@ -122,7 +124,7 @@ export default function Reservation() {
           return
         }
       }
-    } 
+    }
   }
 
   const replaceText = (text) => {
@@ -174,9 +176,9 @@ export default function Reservation() {
                 <h3 className='text-center'>CHOISISSEZ LES DATES DE VOTRE SEJOUR</h3>
               </div>
               {/******************************************************* CALENDRIER */}
-              <div className='w-100 d-flex justify-content-center my-2'>
+              <div className='w-100 d-flex justify-content-center h-75 align-items-center my-2'>
                 <DatePicker locale="fr"
-                  fixedHeight ={false}
+                  fixedHeight={false}
                   placeholderText={"Choisissez  une date"}
                   selected={startDate}
                   onChange={onChange}

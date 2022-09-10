@@ -29,7 +29,6 @@ class Evenements extends Component {
     return (
       <div className='text-white'>
         <h1 className='text-center my-5'>Organisation d'évènements</h1>
-
         {
           this.state.evenements &&
           this.state.evenements.map(evenement => {

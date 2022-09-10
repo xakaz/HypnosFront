@@ -13,13 +13,13 @@ export default function Accueil() {
   useEffect(() => {
     document.title = "Accueil";
 
-    axios.get(process.env.REACT_APP_AXIOS_URL+"/front/services")
+    axios.get(process.env.REACT_APP_AXIOS_URL + "/front/services")
       .then(response => {
         let welcomeArr = []
         for (let i = 0; i < response.data.length; i++) {
           if (response.data[i].service_role === "1") {
             welcomeArr.push(response.data[i])
-            setAccueilCards(welcomeArr);
+            setAccueilCards(welcomeArr)
           }
         }
       })

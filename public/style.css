@@ -2,6 +2,11 @@
   font-family: 'Quicksand', sans-serif;
 }
 
+body{
+  background: #212529;
+}
+
 .content-container{
   box-shadow: -5px 5px 5px rgb(0,0,0);
 }
+

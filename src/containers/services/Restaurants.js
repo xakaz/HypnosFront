@@ -20,7 +20,7 @@ class Restaurants extends Component {
         for (let i = 0; i < response.data.length; i++) {
           if (response.data[i].service_role === "2") {
             restaurantArr.push(response.data[i])
-            this.setState({ restaurants: restaurantArr });
+            this.setState({ restaurants: restaurantArr })
           }
         }
       })
@@ -31,6 +31,7 @@ class Restaurants extends Component {
     return (
       <div className='text-white'>
          <h1 className='text-center my-5'>Nos services de restauration</h1>
+
         {
           this.state.restaurants &&
           this.state.restaurants.map(restaurant => {
