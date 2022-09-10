@@ -25,7 +25,6 @@ export default function Accueil() {
       })
   }, [])
 
-  console.dir(accueilCards);
 
   return (
     <>

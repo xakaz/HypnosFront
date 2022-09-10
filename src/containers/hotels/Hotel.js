@@ -33,13 +33,6 @@ export default function Hotels() {
     return text.replace("&ocirc;", 'ô').replaceAll("&eacute;", "é").replaceAll("&agrave;", "à").replaceAll("&rsquo;", "'").replaceAll("&#039;", "'")
   }
 
-  // const handleHotel = (hotel) => {
-  //   setCurrentHotel(hotel)
-  // }
-
-  console.log(localStorage.getItem('ville'))
-
-
   return (
     <div className="container">
       {

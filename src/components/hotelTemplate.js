@@ -43,8 +43,6 @@ export default function HotelTemplate() {
     return text.replace("&ocirc;", 'ô').replaceAll("&eacute;", "é").replaceAll("&agrave;", "à").replaceAll("&rsquo;", "'").replaceAll("&#039;", "'")
   }
 
-  console.log(localStorage.getItem('ville'))
-
   return (
     hotels && hotels.map(hotel => {
       return (

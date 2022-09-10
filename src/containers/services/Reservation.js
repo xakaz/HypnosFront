@@ -6,7 +6,6 @@ import { v4 as uuid_v4 } from "uuid"
 import DatePicker, { registerLocale } from "react-datepicker";
 import fr from 'date-fns/locale/fr/';
 import "react-datepicker/dist/react-datepicker.css";
-import { useNavigate } from 'react-router-dom'
 registerLocale('fr', fr)
 
 export default function Reservation() {
@@ -54,7 +53,6 @@ export default function Reservation() {
   const handleChangeSuite = (e) => {
     setSuiteSelect(e.target.value)
   }
-  const navigate = useNavigate()
 
   const validData = () => {
     currentUser &&
@@ -137,7 +135,7 @@ export default function Reservation() {
     <div className='container my-5 text-white'>
       <form onSubmit={handleReservation}>
 
-        <div className='d-flex flex-column align-items-start p-5 border rounded-3'>
+        <div className='container d-flex flex-column align-items-center align-items-lg-start p-3 p-xl-5 border rounded-3'>
 
           <div className="row w-100 mb-3">
             <div className="col-12 col-lg-6">
@@ -170,14 +168,16 @@ export default function Reservation() {
               </div>
             </div>
           </div>
-          <div className="row ">
-            <div className="col-12 col-xl-6 d-flex flex-column align-items-center justify-content-evenly">
+          <div className="row">
+            <div className="col-12 col-xl-6 ">
               <div>
                 <h3 className='text-center'>CHOISISSEZ LES DATES DE VOTRE SEJOUR</h3>
               </div>
               {/******************************************************* CALENDRIER */}
-              <div className='my-2'>
+              <div className='w-100 d-flex justify-content-center my-2'>
                 <DatePicker locale="fr"
+                  fixedHeight ={false}
+                  placeholderText={"Choisissez  une date"}
                   selected={startDate}
                   onChange={onChange}
                   startDate={startDate}
@@ -190,24 +190,24 @@ export default function Reservation() {
               </div>
               {
                 startDate && startDate !== 0 ?
-                  <>
-                    <p className='my-2'>
+                  <div className='text-center my-2'>
+                    <p className='my-1'>
                       Du : {startDate ? startDate.toLocaleDateString() : ""} au : {endDate ? endDate.toLocaleDateString() : ""}
                     </p>
                     {suites && suites.map(suite => {
                       return (
                         parseInt(suite.suite_id) === parseInt(suiteSelect) && endDate && endDate !== 0 &&
-                        <div key={uuid_v4()} >
+                        <div key={uuid_v4()} className="mb-2">
                           Prix total : {parseInt(suite.suite_prix) * ((Date.parse(endDate) - Date.parse(startDate)) / 86400000)} € pour {((Date.parse(endDate) - Date.parse(startDate)) / 86400000)} nuits
                         </div>
                       )
                     })}
-                  </>
+                  </div>
                   :
                   <></>
               }
             </div>
-            <div className="col-12 col-xl-6 ">
+            <div className="col-12 col-xl-6 p-5">
               {
                 suites && suites.map(suite => {
                   return (
@@ -243,7 +243,7 @@ export default function Reservation() {
             </div>
           </div>
         </div>
-        <div className="col-2 d-none d-xl-flex"></div>
+        {/* <div className="col-2 d-none d-xl-flex"></div> */}
 
       </form>
     </div>

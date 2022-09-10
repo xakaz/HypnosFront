@@ -24,7 +24,7 @@ export default function Inscription() {
     if (inputs.current[1].value !== inputs.current[2].value) {
       setValidation("Les mots de passes sont différents")
     }
-    if(
+    if (
       inputs.current[1].value.length < 6 ||
       !inputs.current[1].value.match(/[0-9]/g) ||
       !inputs.current[1].value.match(/[A-Z]/g) ||
@@ -65,7 +65,7 @@ export default function Inscription() {
       {
         modalState.Inscription &&
         <div className="position-fixed top-0 vw-100 vh-100" style={{ zIndex: "100" }}>
-          <div className="w-100 h-100" onClick={closeModal} style={{background :'rgba(0,0,0,0.7)'}}></div>
+          <div className="w-100 h-100" onClick={closeModal} style={{ background: 'rgba(0,0,0,0.7)' }}></div>
           <div className="position-absolute top-50 start-50 translate-middle" style={{ minWidth: "400px" }}>
             <div className="modal-dialog">
               <div className="modal-content">
@@ -107,15 +107,15 @@ export default function Inscription() {
                         id="confirmPwd"
                         ref={addInputs}
                       />
-                      <p className={ passRules ? "text-danger mt-1 visually-hidden " : "text-danger mt-1" } >
-                        Le mot de passe doit contenir au moins :
-                        <ul>
+                      <div className={passRules ? "text-danger mt-1 visually-hidden " : "text-danger mt-1"}>
+                        <span className='ps-2'>Le mot de passe doit contenir au moins : </span>
+                        <ul className='ms-2'>
                           <li>6 caractères</li>
                           <li>1 nombre</li>
                           <li>1 majuscule</li>
                           <li>1 caractère spécial</li>
                         </ul>
-                      </p>
+                      </div>
                       <p>{validation}</p>
                     </div>
                     <div className='row'>

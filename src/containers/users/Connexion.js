@@ -1,6 +1,5 @@
 import React, { useContext, useRef, useState } from 'react'
 import { UserContext } from '../../context/UserContext'
-import { useNavigate } from 'react-router-dom'
 
 
 export default function Connexion() {
@@ -8,7 +7,6 @@ export default function Connexion() {
   const { modalState, toggleModals, connexion } = useContext(UserContext)
   const inputs = useRef([])
   const formRef = useRef()
-  const navigate = useNavigate();
   const [validation, setValidation] = useState("")
 
   const addInputs = el => {
@@ -23,7 +21,6 @@ export default function Connexion() {
       await connexion(inputs.current[0].value, inputs.current[1].value)
       formRef.current.reset()
       setValidation("")
-      // navigate("/reservation")
       toggleModals("close")
     } catch {
       document.querySelector('form').reset();
