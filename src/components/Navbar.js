@@ -85,35 +85,41 @@ export default function Navbar() {
                   </ul>
                 </div>
               </div>
+
+
+
+
+
             </nav>
           </div>
         </div>
 
-        {/* BOUTONS INSCRIPTION - CONNEXION - DECONNEXION - MON COMPTE */}
-
-        {
-          currentUser ?
-            <div>
-              <NavLink to='/mon-compte' className="btn btn-outline-dark ms-2">
-                Mon compte
-              </NavLink>
-              <button className="btn btn-outline-danger ms-2"
-                onClick={logOut}>
-                Deconnexion
-              </button>
-            </div>
-            :
-            <div>
-              <button className="btn btn-outline-dark ms-2"
-                onClick={() => toggleModals("inscription")}>
-                Inscription
-              </button>
-              <button className="btn btn-outline-dark ms-2"
-                onClick={() => toggleModals("connexion")}>
-                Connexion
-              </button>
-            </div>
-        }
+              {/* BOUTONS INSCRIPTION - CONNEXION - DECONNEXION - MON COMPTE */}
+              {
+                currentUser ?
+                  <div>
+                    <div>
+                      <NavLink to='/mon-compte' className="btn btn-outline-dark ms-2">
+                        Mon compte
+                      </NavLink>
+                      <button className="btn btn-outline-danger ms-2"
+                        onClick={logOut}>
+                        Deconnexion
+                      </button>
+                    </div>
+                  </div>
+                  :
+                  <div className='d-flex flex-lg-row flex-column justify-content-between mx-2'>
+                    <button className="btn btn-outline-dark my-1 mx-2"
+                      onClick={() => toggleModals("inscription")}>
+                      Inscription
+                    </button>
+                    <button className="btn btn-outline-dark my-1 mx-2"
+                      onClick={() => toggleModals("connexion")}>
+                      Connexion
+                    </button>
+                  </div>
+              }
 
       </nav>
     </>

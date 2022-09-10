@@ -34,10 +34,10 @@ export default function Footer() {
           </div>
 
           {/* COLONNE VIDE DE SEPARATION */}
-          <div className="col d-none d-lg-flex"></div>
+          <div className="col d-flex"></div>
 
           {/* ----------------------------------- PLAN DU SITE -----------------------------------*/}
-          <div className="col">
+          <div className="col-5 col-xl-2 mb-3 mb-xl-0">
             <h5>Plan du site</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
@@ -79,7 +79,7 @@ export default function Footer() {
           </div>
 
           {/* ----------------------------------- VILLES -----------------------------------*/}
-          <div className="col">
+          <div className="col-5 col-xl-2">
             <h5>Villes</h5>
             <ul className="nav flex-column">
               {
@@ -99,12 +99,12 @@ export default function Footer() {
           </div>
 
           {/* ----------------------------------- INFOS -----------------------------------*/}
-          <div className="col">
+          <div className="col-5 col-xl-2">
             <h5>Informations</h5>
-            <ul className="nav flex-column">
+            <ul className="nav flex-column align-items-start">
 
               {/* A PROPOS */}
-              <li className="nav-item mb-2">
+              <li className="nav-item mb-2 text-align-start">
                 <ModalResModalAboutervation className="p-0 text-muted" >A propos d'Hypnos</ModalResModalAboutervation>
               </li>
 

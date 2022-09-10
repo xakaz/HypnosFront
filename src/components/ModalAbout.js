@@ -4,7 +4,7 @@ export default function ModalResModalAboutervation(props) {
   return (
     <div className='text-dark'>
       {/* <!-- Button trigger modal --> */}
-      <span className="btn text-secondary p-0" 
+      <span className="btn text-secondary text-start p-0" 
             data-bs-toggle="modal"
             data-bs-target="#modalAbout">
         {props.children}
