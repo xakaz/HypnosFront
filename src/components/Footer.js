@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../assets/componentsAssets/Navbar/logoHotel.jpg'
+import Logo from '../assets/componentsAssets/Navbar/logoHotel.webp'
 import { NavLink } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'

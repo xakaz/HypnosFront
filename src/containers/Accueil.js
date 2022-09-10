@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Hypnos from '../assets/containersAssets/accueil/hypnos.jpg'
+import Hypnos from '../assets/containersAssets/accueil/hypnos.webp'
 import Carousel from '../components/Carousel'
 import Card from "../components/Card";
 import axios from "axios";

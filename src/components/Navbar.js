@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Logo from '../assets/componentsAssets/Navbar/logoHotel.jpg'
+import Logo from '../assets/componentsAssets/Navbar/logoHotel.webp'
 import { NavLink } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 import { signOut } from 'firebase/auth'
