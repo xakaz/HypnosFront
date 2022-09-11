@@ -48,7 +48,7 @@ export default function Hotels() {
               {/* HOTEL */}
               <div className="col-12 col-xl-6 d-flex align-items-center">
                 <div>
-                  <h3 onClick={() => handleNavigation(hotel.hotel_ville)} >{replaceText(hotel.hotel_name).toUpperCase()}</h3>
+                  <h3>{replaceText(hotel.hotel_name).toUpperCase()}</h3>
                   <hr />
                   <p>{replaceText(hotel.hotel_description)}
                   </p>
