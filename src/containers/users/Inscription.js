@@ -32,7 +32,6 @@ export default function Inscription() {
     ) {
       formRef.current.reset()
       setPassRules(false)
-      return
     }
     try {
       await inscription(
@@ -44,10 +43,12 @@ export default function Inscription() {
       toggleModals("close")
     } catch (error) {
       if (error.code === "auth/invalid-email") {
-        setValidation("Format de l'email non-valide")
+        setValidation("Email non-valide")
+        console.log(error.code)
       }
       if (error.code === "auth/email-already-in-use") {
         setValidation("Cet email est déjà inscrit")
+        console.log(error.code);
       }
     }
   }
@@ -107,7 +108,7 @@ export default function Inscription() {
                         id="confirmPwd"
                         ref={addInputs}
                       />
-                      <div className={passRules ? "text-danger mt-1 visually-hidden " : "text-danger mt-1"}>
+                      <div className={passRules ? "mt-1" : "text-danger mt-1"}>
                         <span className='ps-2'>Le mot de passe doit contenir au moins : </span>
                         <ul className='ms-2'>
                           <li>6 caractères</li>
@@ -116,7 +117,7 @@ export default function Inscription() {
                           <li>1 caractère spécial</li>
                         </ul>
                       </div>
-                      <p>{validation}</p>
+                      <p className='text-danger'>{validation}</p>
                     </div>
                     <div className='row'>
                       <div className="col-6">

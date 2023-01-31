@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 import { v4 as uuid_v4 } from "uuid"
-import { useNavigate } from 'react-router-dom'
 
 
 export default function Hotels() {
@@ -21,13 +20,6 @@ export default function Hotels() {
     fetchHotels();
 
   }, [])
-
-
-  const navigation = useNavigate()
-
-  const handleNavigation = (hotel) => {
-    navigation("/hotel/" + hotel.toLowerCase().replace(" ", ""))
-  }
 
   const replaceText = (text) => {
     return text.replace("&ocirc;", 'ô').replaceAll("&eacute;", "é").replaceAll("&agrave;", "à").replaceAll("&rsquo;", "'").replaceAll("&#039;", "'")
